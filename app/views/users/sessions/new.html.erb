@@ -3,10 +3,7 @@
   <div class="col-5">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "form-row") do |f| %>
 
-      <div class="alert alert-warning alert-dismissible fade show">
-        <%= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] %>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
+
 
       <div class="form-group">
         <%= f.label :email %><br/>

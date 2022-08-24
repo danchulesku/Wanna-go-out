@@ -18,8 +18,12 @@
     </div>
 
     <div class="container">
-
-
+      <% if flash[:alert] %>
+      <div class="alert alert-warning alert-dismissible fade show">
+        <%= content_tag(:div, flash[:alert], :id => "flash_alert")  %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+        <% end %>
       <%= yield %>
     </div>
   </body>
