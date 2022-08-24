@@ -1,0 +1,9 @@
+<div class="text-center">
+  <h1><%= @user.name %></h1>
+
+  <p class="mt-4">
+    <%= link_to "Редактировать профиль", edit_user_path(@user),
+      class: 'btn btn-primary' %>
+  </p>
+</div>
+

@@ -1,0 +1,10 @@
+<h1>События</h1>
+
+<div class="my-4">
+  <%= link_to 'Создать событие', new_event_path, class: 'btn btn-success' %>
+</div>
+
+<div class="row mb-2">
+  <%= render partial: 'events/event', collection: @events %>
+</div>
+
