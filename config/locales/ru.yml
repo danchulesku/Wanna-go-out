@@ -54,4 +54,5 @@ ru:
   users#show:
     Edit-Profile-button: "Редактировать профиль"
     null-state: "Пользователь ещё не организовал ни одного события"
+  events_delete_confirmation: "Удалить этот вопрос?"
 

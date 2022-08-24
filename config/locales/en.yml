@@ -54,4 +54,5 @@ en:
   users#show:
     Edit-Profile-button: "Edit profile"
     null-state: "User hasn't organised any events yet"
+  events_delete_confirmation: "Delete this event?"
 

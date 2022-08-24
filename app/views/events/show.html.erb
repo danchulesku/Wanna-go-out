@@ -10,17 +10,27 @@
             <h1 class="mb-3"><%= @event.title %></h1>
             <h5 class="mb-3"><%= l(@event.datetime, format: :long) %></h5>
             <h5 class="mb-3"><small><%= link_to @event.address,
-                                   "https://yandex.ru/maps/?text=#{@event.address}",
-                                   class: "text-decoration-none" %></small>
+                                                "https://yandex.ru/maps/?text=#{@event.address}",
+                                                class: "text-decoration-none" %></small>
             </h5>
             <p><%= @event.description %></p>
           </div>
 
           <% if current_user_can_edit?(@event) %>
-            <div class="mt-3 mb-2">
-              <%= link_to "Edit", edit_event_path(@event),
-                          class: "btn btn-primary" %>
+            <div class="row">
+              <div class="mt-3 mb-2 col-6 w-auto">
+                <%= link_to "Edit", edit_event_path(@event),
+                            class: "btn btn-sm btn-primary" %>
+              </div>
+
+              <div class="mt-3 mb-2 col-6">
+                <%= link_to "Delete", "/events/#{@event.id}",
+                            class: "btn btn-sm btn-danger",
+                            method: :delete,
+                            data: { confirm: t("events_delete_confirmation") } %>
+              </div>
             </div>
+
           <% end %>
         </div>
       </div>
