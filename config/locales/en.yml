@@ -40,9 +40,12 @@ en:
   sign_up:
     sign_up-label: "Sign-up"
     sign_up-button: "Sign-up"
-  events#index:
+  events_index:
     create-button: "Create event"
-    label: "Events:"
+    label:
+      one: "Current event:"
+      many: "Current events:"
+      few: "Current events:"
   events_form:
     Save-button: "Save"
     back-button: "Back"

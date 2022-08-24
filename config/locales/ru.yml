@@ -42,7 +42,10 @@ ru:
     sign_up-button: "Зарегистрироваться"
   events#index:
     create-button: "Создать событие"
-    label: "События:"
+    label:
+      one: "Доступное событие:"
+      few: "Доступные события"
+      many: "Доступные события:"
   events_form:
     Save-button: "Сохранить"
     back-button: "Вернуться назад"
