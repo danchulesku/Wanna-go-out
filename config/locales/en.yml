@@ -46,6 +46,7 @@ en:
       one: "Current event:"
       many: "Current events:"
       few: "Current events:"
+      other: "Current events:"
   events_form:
     Save-button: "Save"
     back-button: "Back"
