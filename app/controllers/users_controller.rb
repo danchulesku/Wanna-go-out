@@ -14,15 +14,11 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1 or /users/1.json
   def update
-    respond_to do |format|
       if @current_user.update(user_params)
-        format.html { redirect_to user_url(@user), notice: I18n.t("controllers.update") }
-        format.json { render :show, status: :ok, location: @user }
+        redirect_to user_url(@user), notice: I18n.t("controllers.update")
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        render :edit, status: :unprocessable_entity
       end
-    end
   end
 
   private
