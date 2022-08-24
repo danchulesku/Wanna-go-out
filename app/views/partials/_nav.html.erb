@@ -1,17 +1,19 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
-    <a class="navbar-brand" href="/">BBQ</a>
+    <%= link_to t('app.name'), root_path, class: 'navbar-brand' %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
+        <% if user_signed_in? %>
+          <li class="nav-item"><%= link_to t("app.navbar.Profile-button"), current_user, class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to t("app.navbar.exit-button"),  destroy_user_session_path, method: :delete,
+                                           class: "nav-link" %></li>
+        <% else %>
+          <li class="nav-item"><%= link_to t("log-in_form.log-in-label"), new_user_session_path, class: "nav-link"  %></li>
+          <li class="nav-item"><%= link_to t("sign_up.sign_up-label"), new_user_registration_path, class: "nav-link"  %></li>
+        <% end %>
       </ul>
     </div>
   </div>

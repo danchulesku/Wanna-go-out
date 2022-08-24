@@ -1,0 +1,54 @@
+ru:
+  # Перевод моделей
+  activerecord:
+    # Перевод названия моделей
+    models:
+      user: "Пользователь"
+      event: "Событие"
+
+    # Перевод атрибутов моделей
+    attributes:
+      user:
+        email: "Email"
+        name: "Имя"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
+      event:
+        title: "Название"
+        address: "Место проведения"
+        datetime: "Дата и время"
+        description: "Описание"
+
+  controllers:
+    user:
+      update: "Вы обновили свой профиль"
+    events:
+      created: "Вы создали новое мероприятие"
+      updated: "Вы обновили мероприятие"
+      destroyed: "Вы удалили мероприятие :("
+  app:
+    name: "Шашлыки"
+    company: "Грищенко"
+    navbar:
+      Profile-button: "Профиль"
+      exit-button: "Выйти"
+  log-in_form:
+    log-in-label: "Вход"
+    log-in_button: "Войти"
+    forgot_password: "Забыли ваш пароль?"
+    send_instructions: "Отправить инструкцию по восстановлению пароля"
+  sign_up:
+    sign_up-label: "Регистрация"
+    sign_up-button: "Зарегистрироваться"
+  events#index:
+    create-button: "Создать событие"
+    label: "События:"
+  events_form:
+    Save-button: "Сохранить"
+    back-button: "Вернуться назад"
+  events#new:
+    label: "Новое событие"
+  users#show:
+    Edit-Profile-button: "Редактировать профиль"
+    null-state: "Пользователь ещё не организовал ни одного события"
+
