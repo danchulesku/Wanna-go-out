@@ -1,30 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>BbqRails6Bs5</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>BbqRails6Bs5</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <%= render '/partials/nav' %>
+<body>
+<%= render '/partials/nav' %>
 
-    <div class="container">
+<div class="container mt-3">
+  <% if notice %>
+    <div class="alert alert-warning alert-dismissible fade show">
       <p id="notice"><%= notice %></p>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
+  <% end %>
+</div>
 
-    <div class="container">
-      <% if flash[:alert] %>
-      <div class="alert alert-warning alert-dismissible fade show">
-        <%= content_tag(:div, flash[:alert], :id => "flash_alert")  %>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
-        <% end %>
-      <%= yield %>
+<div class="container">
+  <% if flash[:alert] %>
+    <div class="alert alert-danger alert-dismissible fade show">
+      <%= content_tag(:div, flash[:alert], :id => "flash_alert") %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-  </body>
+  <% end %>
+  <%= yield %>
+</div>
+</body>
 </html>

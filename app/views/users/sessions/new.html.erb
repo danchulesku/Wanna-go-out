@@ -1,6 +1,6 @@
 <h2><%= t("log-in_form.log-in-label") %></h2>
 <div class="row">
-  <div class="col-5">
+  <div class="col-sm-10 col-md-5 col-lg-5">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "form-row") do |f| %>
 
       <div class="form-group">
@@ -14,7 +14,10 @@
 
       <div class="form-group mt-2">
         <%= f.label :password %><br/>
-        <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+        <div class="input-group">
+          <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+          <span style="height: 38px;" class="my-auto input-group-text"><i class="fa-solid fa-lock"></i></span>
+        </div>
       </div>
 
       <% if devise_mapping.rememberable? %>
