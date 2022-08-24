@@ -3,7 +3,7 @@
 <% if errors.any? %>
   <div class="alert alert-danger">
     <div class="lead buffer-bottom">
-      In your form <%= errors.count %> errors
+      <%= errors.count.to_s + " " + I18n.t("events.form.error.word", count: errors.count)%>
     </div>
 
     <ul>

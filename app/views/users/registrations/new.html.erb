@@ -15,9 +15,6 @@
 
       <div class="form-group mt-2">
         <%= f.label :password %>
-        <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br/>
         <div class="input-group flex-nowrap">
           <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
           <span style="height: 38px;" id="inputGroupPrepend" class="my-auto input-group-text"><i class="fa-solid fa-lock"></i></span>

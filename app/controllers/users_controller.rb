@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1 or /users/1.json
   def update
       if @current_user.update(user_params)
-        redirect_to user_url(@user), notice: I18n.t("controllers.update")
+        redirect_to user_url(@user), notice: I18n.t("controllers.user.update")
       else
         render :edit, status: :unprocessable_entity
       end

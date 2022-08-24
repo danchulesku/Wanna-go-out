@@ -19,12 +19,12 @@
           <% if current_user_can_edit?(@event) %>
             <div class="row">
               <div class="mt-3 mb-2 col-6 w-auto">
-                <%= link_to "Edit", edit_event_path(@event),
+                <%= link_to t("events.show.edit-button"), edit_event_path(@event),
                             class: "btn btn-sm btn-primary" %>
               </div>
 
               <div class="mt-3 mb-2 col-6">
-                <%= link_to "Delete", "/events/#{@event.id}",
+                <%= link_to t("events.show.delete-button"), "/events/#{@event.id}",
                             class: "btn btn-sm btn-danger",
                             method: :delete,
                             data: { confirm: t("events_delete_confirmation") } %>

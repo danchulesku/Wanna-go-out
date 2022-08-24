@@ -49,10 +49,35 @@ en:
   events_form:
     Save-button: "Save"
     back-button: "Back"
-  events#new:
+  events_new:
     label: "New event"
-  users#show:
-    Edit-Profile-button: "Edit profile"
-    null-state: "User hasn't organised any events yet"
-  events_delete_confirmation: "Delete this event?"
+  user:
+    edit:
+      header: "Profile editing"
+      change-password: "Change password"
+    new:
+      header: "New user"
+    show:
+      button: "Edit profile"
+      organized: "Organized:"
+      null-state: "This user hasn't organised any events yet"
 
+  events_delete_confirmation: "Delete this event?"
+  events:
+    show:
+      edit-button: "Edit"
+      delete-button: "Delete"
+    edit: "Edit event"
+    form:
+      error:
+        message: "during saving event"
+        word:
+          one: "Error"
+          few: "Errors"
+          many: "Errors"
+          other: "Errors"
+  shared:
+    links:
+      Log-in: "Войти"
+      Sign-up: "Зарегистрироваться"
+      Forgot-your-password: "Забыли ваш пароль"

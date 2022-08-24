@@ -1,7 +1,10 @@
 <%= form_with(model: event) do |form| %>
   <% if event.errors.any? %>
     <div id="error_explanation" class="alert alert-warning alert-dismissible fade show" role="alert">
-      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+      <h2><%= event.errors.count.to_s + " " +
+                I18n.t("events.form.error.word", count: event.errors.count) + " " +
+                t("events.form.error.message") %>
+      </h2>
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       <ul>
         <% event.errors.each do |error| %>
@@ -32,7 +35,7 @@
   </div>
 
   <div class="mt-2">
-    <%= form.submit 'Сохранить', class: 'btn btn-primary' %>
-    или <%= link_to 'вернуться', :back %>
+    <%= form.submit t("events_form.Save-button"), class: 'btn btn-primary' %>
+    <%= link_to t("events_form.back-button"), :back %>
   </div>
 <% end %>

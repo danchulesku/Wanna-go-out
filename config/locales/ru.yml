@@ -40,7 +40,7 @@ ru:
   sign_up:
     sign_up-label: "Регистрация"
     sign_up-button: "Зарегистрироваться"
-  events#index:
+  events_index:
     create-button: "Создать событие"
     label:
       one: "Доступное событие:"
@@ -49,10 +49,35 @@ ru:
   events_form:
     Save-button: "Сохранить"
     back-button: "Вернуться назад"
-  events#new:
+  events_new:
     label: "Новое событие"
-  users#show:
-    Edit-Profile-button: "Редактировать профиль"
-    null-state: "Пользователь ещё не организовал ни одного события"
+  user:
+    edit:
+      header: "Редактирование профиля"
+      change-password: "Сменить пароль"
+    new:
+      header: "Новый пользователь"
+    show:
+      button: "Редактирование профиля"
+      organized: "Организовал:"
+      null-state: "Этот пользователь ещё не организовал ни одного события"
   events_delete_confirmation: "Удалить этот вопрос?"
+  events:
+    show:
+      edit-button: "Редактировать"
+      delete-button: "Удалить"
+    edit: "Редактирование события"
+    form:
+      error:
+        message: "при сохранении события:"
+        word:
+          one: "Ошибка"
+          few: "Ошибки"
+          many: "Ошибок"
+          other: "Ошибок"
+  shared:
+    links:
+      Log-in: "Войти"
+      Sign-up: "Зарегистрироваться"
+      Forgot-your-password: "Забыли ваш пароль"
 
