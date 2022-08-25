@@ -26,6 +26,10 @@ en:
       created: "You created new event"
       updated: "You updated event"
       destroyed: "You deleted event :("
+      comments:
+        created: "You created new comment"
+        error: "Something went wrong. Comment is not created"
+        destroyed: "Comment is deleted"
   app:
     name: "BBQ"
     company: "Grishchenko"
@@ -98,3 +102,8 @@ en:
       Log-in: "Войти"
       Sign-up: "Зарегистрироваться"
       Forgot-your-password: "Забыли ваш пароль"
+  comments:
+    comment:
+    destroy_confirm: 'Delete this comment?'
+
+
