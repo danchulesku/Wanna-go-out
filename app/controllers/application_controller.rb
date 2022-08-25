@@ -13,4 +13,10 @@ class ApplicationController < ActionController::Base
   def current_user_can_edit?(event)
     signed_in? && current_user == event.user
   end
+  private
+  # Overwriting the sign_out redirect path method
+  #def after_sign_up_path_for(resource_or_scope)
+  #  root
+  #end
+
 end

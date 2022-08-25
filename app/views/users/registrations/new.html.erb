@@ -2,7 +2,7 @@
 
 <div class="row">
   <div class="col-sm-10 col-md-5 col-lg-5">
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), class: "form-row") do |f| %>
       <%= render "users/shared/error_messages", resource: resource %>
 
       <div class="form-group mt-3">
@@ -23,16 +23,8 @@
 
       <div class="form-group mt-2">
         <%= f.label :password_confirmation %>
-        <div class="input-group flex-nowrap">
-
-          <% if resource.errors.any? %>
-            <div class="field_with_errors">
-              <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
-            </div>
-          <% else %>
-              <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
-          <% end %>
-
+        <div class="input-group flex-nowrap ">
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
           <span style="height: 38px;" class="my-auto input-group-text"><i class="fa-solid fa-lock"></i></span>
         </div>
       </div>
