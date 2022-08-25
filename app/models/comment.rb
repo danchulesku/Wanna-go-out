@@ -9,7 +9,7 @@ class Comment < ApplicationRecord
     if user.present?
       user.name
     else
-      super
+      super# Comment.user_name (вызывается одноимённый родительский метод)
     end
   end
 

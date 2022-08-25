@@ -10,13 +10,12 @@ class ApplicationController < ActionController::Base
     )
   end
 
-  def current_user_can_edit?(event)
-    signed_in? && current_user == event.user
+  def current_user_can_edit?(model)
+    # Если у модели есть юзер и он залогиненный, пробуем у неё взять .event
+    # Если он есть, проверяем его юзера на равенство current_user.
+    user_signed_in? && (
+      model.user == current_user ||
+        (model.try(:event).present? && model.event.user == current_user)
+    )
   end
-  private
-  # Overwriting the sign_out redirect path method
-  #def after_sign_up_path_for(resource_or_scope)
-  #  root
-  #end
-
 end

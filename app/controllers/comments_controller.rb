@@ -35,7 +35,7 @@ class CommentsController < ApplicationController
   end
 
   def set_event
-    @event = Event.find[params[:event_id]]
+    @event = Event.find(params[:event_id])
   end
 
   # Only allow a list of trusted parameters through.

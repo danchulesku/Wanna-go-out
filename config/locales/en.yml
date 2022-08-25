@@ -30,6 +30,12 @@ en:
         created: "You created new comment"
         error: "Something went wrong. Comment is not created"
         destroyed: "Comment is deleted"
+    subscriptions:
+      created: 'You subscribed on this event'
+      destroyed: 'You unsubscribed on this event'
+      error: 'Subscription/Unsubscription did not work'
+      subscription:
+        destroy_confirm: 'Вы уверены, что хотите удалить эту подписку?'
   app:
     name: "BBQ"
     company: "Grishchenko"
@@ -105,5 +111,7 @@ en:
   comments:
     comment:
     destroy_confirm: 'Delete this comment?'
+
+
 
 
