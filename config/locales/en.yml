@@ -62,7 +62,23 @@ en:
       button: "Edit profile"
       organized: "Organized:"
       null-state: "This user hasn't organised any events yet"
-
+    reset_password_instructions:
+      p1: "Hello"
+      p2: "Someone has requested a link to change your password. You can do this through the link below."
+      p3: "Change my password"
+      p4: "If you didn't request this, please ignore this email."
+      p5: "Your password won't change until you access the link above and create a new one."
+    registrations:
+      edit:
+        header: "Edit User"
+        password:
+          prompt: "leave blank if you don't want to change it"
+          prompt-confirm: "we need your current password to confirm your changes"
+        button:
+          update: "Update"
+          back: "Back"
+          delete_account: "Delete my account"
+        delete-confirmation: "Delete your account?"
   events_delete_confirmation: "Delete this event?"
   events:
     show:

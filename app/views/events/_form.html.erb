@@ -1,9 +1,9 @@
 <%= form_with(model: event) do |form| %>
   <% if event.errors.any? %>
     <div id="error_explanation" class="alert alert-warning alert-dismissible fade show" role="alert">
-      <h2><%= event.errors.count.to_s + " " +
-                I18n.t("events.form.error.word", count: event.errors.count) + " " +
-                t("events.form.error.message") %>
+      <h2><%= event.errors.count.to_s %>
+        <%= t("events.form.error.word", count: event.errors.count) %>
+        <%= t("events.form.error.message") %>
       </h2>
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       <ul>
