@@ -1,13 +1,13 @@
-<div class="buffer-bottom">
+<div class="border rounded mb-3 bg-light">
   <p><%= comment.body %></p>
   <p>
     <span>
-      <% if comment.user.present? %>
-        <%= render partial: 'users/user', object: comment.user %>
-      <% else %>
-        <em><strong><%= comment.user_name %></strong></em>
-      <% end %>
-    </span>
+    <% if comment.user.present? %>
+      <%= render partial: 'users/user', object: comment.user %>
+    <% else %>
+      <em><strong><%= comment.user_name %></strong></em>
+    <% end %>
+  </span>
     <em><%= l comment.created_at, format: :short %></em>
     <% if current_user_can_edit?(comment) %>
       <%= link_to(

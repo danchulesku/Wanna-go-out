@@ -2,7 +2,7 @@
   <%= render partial: 'partials/form_errors', locals: { model: comment } %>
 
   <div class="form-group">
-    <%= f.label :body %>
+    <%= f.label "your comment:" %>
     <%= f.text_area :body, class: 'form-control' %>
   </div>
 
@@ -13,7 +13,7 @@
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit 'Отправить', class: 'btn btn-primary' %>
+  <div class="actions mt-2">
+    <%= f.submit 'Отправить', class: 'btn btn-sm btn-primary' %>
   </div>
 <% end %>

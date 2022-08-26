@@ -1,6 +1,7 @@
-<span class="user">
+<span class="user flex-nowrap">
+
   <span class="user-avatar">
-    <%= image_tag(user_avatar(user), class: 'img-icon') %>
+    <%= image_tag(user_avatar(user), class: 'img-icon img-fluid', style: "width: 30px;") %>
   </span>
   <span class="user-name">
     <% if request.path == user_path(user) %>
@@ -9,4 +10,5 @@
       <%= link_to user.name, user_path(user) %>
     <% end %>
   </span>
+
 </span>
