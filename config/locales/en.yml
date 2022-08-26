@@ -22,6 +22,7 @@ en:
         user: "user"
       comment:
         body: "comment"
+        user_name: "user name"
 
   controllers:
     user:
@@ -42,6 +43,8 @@ en:
         destroy_confirm: 'Delete this subscription?'
       errors:
         sub-owner: "can't subscribe on own event"
+        existing-email: "already existing in BBQ. 
+        Please register or use another email to subscribe"
         word:
           one: "error"
           many: "errors"

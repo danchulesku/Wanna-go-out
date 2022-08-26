@@ -9,9 +9,11 @@ class Subscription < ApplicationRecord
   validates :user_name, presence: true, unless: -> { user.present? }
   validates :user_email, presence: true, format: /\A[a-zA-Z0-9\-_.]+@[a-zA-Z0-9\-_.]+\z/, unless: -> { user.present? }
 
-  validates :user, uniqueness: {scope: :event_id}, if: -> {user.present?}
-  validates :user_email, uniqueness: {scope: :event_id}, unless: -> {user.present?}
-  validate :sub_not_author
+  validates :user, uniqueness: { scope: :event_id }, if: -> { user.present? }
+  validates :user_email, uniqueness: { scope: :event_id }, unless: -> { user.present? }
+  validate :sub_not_author, on: :create
+  validate :sub_is_not_already_existing, on: :create
+
   # Если есть юзер, выдаем его имя,
   # если нет – дергаем исходный метод
   def user_name
@@ -35,6 +37,12 @@ class Subscription < ApplicationRecord
   def sub_not_author
     if event.user == user
       errors.add(:user, I18n.t("controllers.subscriptions.errors.sub-owner"))
+    end
+  end
+
+  def sub_is_not_already_existing
+    if User.where(email: user_email).present?
+      errors.add(:user_email, I18n.t("controllers.subscriptions.errors.existing-email"))
     end
   end
 

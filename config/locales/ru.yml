@@ -20,8 +20,11 @@ ru:
         description: "Описание"
       subscription:
         user: "Пользователь"
+        user_name: "Имя пользователя"
+        user_email: "email"
       comment:
-        body: "комментарий"
+        body: "Комментарий"
+        user_name: "Имя пользователя"
 
   controllers:
     user:
@@ -42,6 +45,8 @@ ru:
         destroy_confirm: 'Вы уверены, что хотите удалить эту подписку?'
       errors:
         sub-owner: "не может подписаться на собственное событие"
+        existing-email: "уже зарегистрирован в Шашлыках. 
+        Зарегистрируйтесь или воспользуйтесь другим email, чтобы подписаться"
         word:
           one: "ошибка"
           many: "ошибок"
