@@ -11,6 +11,7 @@ class Subscription < ApplicationRecord
 
   validates :user, uniqueness: {scope: :event_id}, if: -> {user.present?}
   validates :user_email, uniqueness: {scope: :event_id}, unless: -> {user.present?}
+  validate :sub_not_author
   # Если есть юзер, выдаем его имя,
   # если нет – дергаем исходный метод
   def user_name
@@ -28,6 +29,12 @@ class Subscription < ApplicationRecord
       user.email
     else
       super
+    end
+  end
+
+  def sub_not_author
+    if event.user == user
+      errors.add(:user, "can't be owner")
     end
   end
 
