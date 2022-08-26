@@ -41,7 +41,7 @@
       <h2 class="mt-3">Comments:</h2>
       <div class="event-comments">
         <%= render partial: 'comments/form',
-                   locals: {comment: @new_comment || @event.comments.build} %>
+                   locals: { comment: @new_comment || @event.comments.build } %>
 
         <div class="mt-4 mb-4">
           <%= render partial: 'comments/comment',
@@ -65,12 +65,14 @@
         </div>
       </div>
       <div class="event-subscription-form">
-        <h4>Я пойду:</h4>
-        <div>
-          <%= render partial: 'subscriptions/form', locals: {
-            subscription: @new_subscription || @event.subscriptions.build
-          } %>
-        </div>
+        <% unless current_user_can_edit?(@event) %>
+          <h4>Я пойду:</h4>
+          <div>
+            <%= render partial: 'subscriptions/form', locals: {
+              subscription: @new_subscription || @event.subscriptions.build
+            } %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>

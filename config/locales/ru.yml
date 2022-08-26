@@ -18,6 +18,10 @@ ru:
         address: "Место проведения"
         datetime: "Дата и время"
         description: "Описание"
+      subscription:
+        user: "Пользователь"
+      comment:
+        body: "комментарий"
 
   controllers:
     user:
@@ -36,6 +40,14 @@ ru:
       error: 'Подписка/отписка не сработала'
       subscription:
         destroy_confirm: 'Вы уверены, что хотите удалить эту подписку?'
+      errors:
+        sub-owner: "не может подписаться на собственное событие"
+        word:
+          one: "ошибка"
+          many: "ошибок"
+          few: "ошибки"
+          other: "ошибок"
+
   app:
     name: "Шашлыки"
     company: "Грищенко"

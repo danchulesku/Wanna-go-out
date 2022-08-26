@@ -1,6 +1,6 @@
 class Subscription < ApplicationRecord
   belongs_to :event
-  belongs_to :user
+  belongs_to :user, optional: true
 
   validates :event, presence: true
   # Проверки user_name и user_email выполняются,
@@ -34,7 +34,7 @@ class Subscription < ApplicationRecord
 
   def sub_not_author
     if event.user == user
-      errors.add(:user, "can't be owner")
+      errors.add(:user, I18n.t("controllers.subscriptions.errors.sub-owner"))
     end
   end
 

@@ -18,6 +18,10 @@ en:
         address: "address"
         datetime: "datetime"
         description: "description"
+      subscription:
+        user: "user"
+      comment:
+        body: "comment"
 
   controllers:
     user:
@@ -35,7 +39,14 @@ en:
       destroyed: 'You unsubscribed on this event'
       error: 'Subscription/Unsubscription did not work'
       subscription:
-        destroy_confirm: 'Вы уверены, что хотите удалить эту подписку?'
+        destroy_confirm: 'Delete this subscription?'
+      errors:
+        sub-owner: "can't subscribe on own event"
+        word:
+          one: "error"
+          many: "errors"
+          few: "errors"
+          other: "errors"
   app:
     name: "BBQ"
     company: "Grishchenko"
