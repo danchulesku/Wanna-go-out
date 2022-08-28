@@ -39,17 +39,7 @@ en:
       created: 'You subscribed on this event'
       destroyed: 'You unsubscribed on this event'
       error: 'Subscription/Unsubscription did not work'
-      subscription:
-        destroy_confirm: 'Delete this subscription?'
-      errors:
-        sub-owner: "can't subscribe on own event"
-        existing-email: "already existing in BBQ. 
-        Please register or use another email to subscribe"
-        word:
-          one: "error"
-          many: "errors"
-          few: "errors"
-          other: "errors"
+
   app:
     name: "BBQ"
     company: "Grishchenko"
@@ -126,6 +116,16 @@ en:
     comment:
     destroy_confirm: 'Delete this comment?'
 
-
+  subscription:
+    destroy_confirm: 'Delete this subscription?'
+    errors:
+      self-owner: "can't subscribe on own event"
+      existing-email: "already existing in BBQ. 
+      Please register or use another email to subscribe"
+      word:
+        one: "error"
+        many: "errors"
+        few: "errors"
+        other: "errors"
 
 

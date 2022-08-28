@@ -11,7 +11,7 @@ class Subscription < ApplicationRecord
 
   validates :user, uniqueness: { scope: :event_id }, if: -> { user.present? }
   validates :user_email, uniqueness: { scope: :event_id }, unless: -> { user.present? }
-  validate :sub_not_author, on: :create
+  validate :sub_not_owner
   validate :sub_is_not_already_existing, on: :create
 
   # Если есть юзер, выдаем его имя,
@@ -34,15 +34,15 @@ class Subscription < ApplicationRecord
     end
   end
 
-  def sub_not_author
+  def sub_not_owner
     if event.user == user
-      errors.add(:user, I18n.t("controllers.subscriptions.errors.sub-owner"))
+      errors.add(:user, I18n.t("subscription.errors.self-owner"))
     end
   end
 
   def sub_is_not_already_existing
     if User.where(email: user_email).present?
-      errors.add(:user_email, I18n.t("controllers.subscriptions.errors.existing-email"))
+      errors.add(:user_email, I18n.t("subscription.errors.existing-email"))
     end
   end
 
