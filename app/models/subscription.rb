@@ -12,7 +12,7 @@ class Subscription < ApplicationRecord
   validates :user, uniqueness: { scope: :event_id }, if: -> { user.present? }
   validates :user_email, uniqueness: { scope: :event_id }, unless: -> { user.present? }
   validate :sub_not_owner
-  validate :sub_is_not_already_existing, on: :create
+  validate :sub_is_not_already_existing, if: -> { user.nil? }
 
   # Если есть юзер, выдаем его имя,
   # если нет – дергаем исходный метод
