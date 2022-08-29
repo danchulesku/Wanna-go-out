@@ -35,6 +35,11 @@
   </div>
 
   <div class="mt-2">
+    <%= form.label :photo %>
+    <%= form.file_field :photo, class: 'form-control' %>
+  </div>
+
+  <div class="mt-2">
     <%= form.submit t("events_form.Save-button"), class: 'btn btn-primary' %>
     <%= link_to t("events_form.back-button"), :back %>
   </div>

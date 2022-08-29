@@ -22,7 +22,6 @@
                 <%= link_to t("events.show.edit-button"), edit_event_path(@event),
                             class: "btn btn-sm btn-primary" %>
               </div>
-
               <div class="mt-3 mb-2 col-6">
                 <%= link_to t("events.show.delete-button"), "/events/#{@event.id}",
                             class: "btn btn-sm btn-danger",
@@ -30,12 +29,16 @@
                             data: { confirm: t("events_delete_confirmation") } %>
               </div>
             </div>
-
           <% end %>
         </div>
       </div>
     </div>
   </div>
+  <% if @event.photo.attached? %>
+    <div class="my-2">
+      <%= image_tag @event.photo %>
+    </div>
+  <% end %>
   <div class="row">
     <div class="col-md-8">
       <h2 class="mt-3">Comments:</h2>
