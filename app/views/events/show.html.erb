@@ -34,9 +34,24 @@
       </div>
     </div>
   </div>
-  <% if @event.photo.attached? %>
+  <% if current_user_can_edit?(@event) %>
+    <%= form_with(model: @event, multipart: true) do |form| %>
+      <div class="mt-2">
+        <%= form.label :photos %>
+        <%= form.file_field :photos, class: 'form-control', multiple: true %>
+      </div>
+
+      <div class="mt-2 mb-4">
+        <%= form.submit t("events_form.Save-button"), class: 'btn  btn-sm btn-primary' %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <% if @event.photos.attached? %>
     <div class="my-2">
-      <%= image_tag @event.photo.variant(resize_to_fit: [100, 100]), class: "img-fluid" %>
+      <% @event.photos.each do |photo| %>
+        <%= event_photo(photo) %>
+      <% end %>
     </div>
   <% end %>
   <div class="row">

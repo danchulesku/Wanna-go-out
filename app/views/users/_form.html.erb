@@ -11,6 +11,11 @@
     <%= f.text_field :email, class: "form-control" %>
   </div>
 
+  <div class="mt-2">
+    <%= f.label :avatar %>
+    <%= f.file_field :avatar, class: 'form-control' %>
+  </div>
+
   <div class="actions mt-3">
     <%= f.submit t("events_form.Save-button"), class: "btn btn-primary" %>
     <%= link_to t("events_form.back-button"), :back %>

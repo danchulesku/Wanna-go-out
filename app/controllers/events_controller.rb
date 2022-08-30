@@ -28,20 +28,23 @@ class EventsController < ApplicationController
   def create
     @event = current_user.events.build(event_params)
 
-      if @event.save
-        redirect_to event_url(@event), notice: I18n.t("controllers.events.created")
-      else
-        render :new, status: :unprocessable_entity
-      end
+    if @event.save
+      redirect_to event_url(@event), notice: I18n.t("controllers.events.created")
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   # PATCH/PUT /events/1 or /events/1.json
   def update
-      if @event.update(event_params)
-        redirect_to event_url(@event), notice: I18n.t("controllers.events.updated")
-      else
-        render :edit, status: :unprocessable_entity
-      end
+    if @event.update(event_params)
+      #if event_params[:photos].present?
+      #  @event.photos.attach(event_params[:photos])
+      #end
+      redirect_to event_url(@event), notice: I18n.t("controllers.events.updated")
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   # DELETE /events/1 or /events/1.json
@@ -61,6 +64,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:title, :address, :description, :datetime, :photo)
+    params.require(:event).permit(:title, :address, :description, :datetime, photos: [])
   end
 end
