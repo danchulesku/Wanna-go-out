@@ -2,18 +2,20 @@ class Subscription < ApplicationRecord
   belongs_to :event
   belongs_to :user, optional: true
 
-  validates :event, presence: true
+  with_options if: -> { user.present? } do
+    validates :user, uniqueness: { scope: :event_id }
+    validate :owner_signing
+  end
+
+  with_options unless: -> { user.present? } do
+    validates :user_name, presence: true
+    validates :user_email, presence: true, format: /\A[a-zA-Z0-9\-_.]+@[a-zA-Z0-9\-_.]+\z/
+    validate :email_existence
+    validates :user_email, uniqueness: { scope: :event_id }
+  end
   # Проверки user_name и user_email выполняются,
   # только если user не задан
   # То есть для анонимных пользователей
-  validates :user_name, presence: true, unless: -> { user.present? }
-  validates :user_email, presence: true, format: /\A[a-zA-Z0-9\-_.]+@[a-zA-Z0-9\-_.]+\z/, unless: -> { user.present? }
-
-  validates :user, uniqueness: { scope: :event_id }, if: -> { user.present? }
-  validates :user_email, uniqueness: { scope: :event_id }, unless: -> { user.present? }
-  validate :sub_not_owner
-  validate :sub_is_not_already_existing, if: -> { user.nil? }
-
   # Если есть юзер, выдаем его имя,
   # если нет – дергаем исходный метод
   def user_name
@@ -34,16 +36,17 @@ class Subscription < ApplicationRecord
     end
   end
 
-  def sub_not_owner
+  private
+
+  def owner_signing
     if event.user == user
-      errors.add(:user, I18n.t("subscription.errors.self-owner"))
+      errors.add(:user, message: I18n.t("subscription.errors.self-owner"))
     end
   end
 
-  def sub_is_not_already_existing
+  def email_existence
     if User.where(email: user_email).present?
-      errors.add(:user_email, I18n.t("subscription.errors.existing-email"))
+      errors.add(:user_email, message: I18n.t("subscription.errors.existing-email"))
     end
   end
-
 end
