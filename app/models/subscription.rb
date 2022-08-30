@@ -40,13 +40,13 @@ class Subscription < ApplicationRecord
 
   def owner_signing
     if event.user == user
-      errors.add(:user, message: I18n.t("subscription.errors.self-owner"))
+      errors.add(:user, :is_owner, message: I18n.t("subscription.errors.self-owner"))
     end
   end
 
   def email_existence
     if User.where(email: user_email).present?
-      errors.add(:user_email, message: I18n.t("subscription.errors.existing-email"))
+      errors.add(:user_email, :exist, message: I18n.t("subscription.errors.existing-email"))
     end
   end
 end
