@@ -38,9 +38,8 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1 or /events/1.json
   def update
     if @event.update(event_params)
-      #if event_params[:photos].present?
-      #  @event.photos.attach(event_params[:photos])
-      #end
+      debugger
+      @event.photos.attach(params[:event][:photos]) if params[:event][:photos].present?
       redirect_to event_url(@event), notice: I18n.t("controllers.events.updated")
     else
       render :edit, status: :unprocessable_entity
@@ -64,6 +63,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:title, :address, :description, :datetime, photos: [])
+    params.require(:event).permit(:title, :address, :description, :datetime)
   end
 end

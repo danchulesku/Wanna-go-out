@@ -34,7 +34,7 @@
       </div>
     </div>
   </div>
-  <% if current_user_can_edit?(@event) %>
+  <% if user_can_add_photo?(@event) %>
     <%= form_with(model: @event, multipart: true) do |form| %>
       <div class="mt-2">
         <%= form.label :photos %>
@@ -47,10 +47,10 @@
     <% end %>
   <% end %>
 
-  <% if @event.photos.attached? %>
+  <% if @event.photos.any? %>
     <div class="my-2">
       <% @event.photos.each do |photo| %>
-        <%= event_photo(photo) %>
+        <%= event_photo(photo.source) %>
       <% end %>
     </div>
   <% end %>
