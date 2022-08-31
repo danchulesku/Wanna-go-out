@@ -46,7 +46,7 @@ class Subscription < ApplicationRecord
 
   def email_existence
     if User.where(email: user_email).present?
-      errors.add(:user_email, :exist, message: I18n.t("subscription.errors.existing-email"))
+      errors.add(:user_email, :exist)
     end
   end
 end

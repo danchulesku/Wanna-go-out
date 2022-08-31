@@ -6,11 +6,6 @@ class Comment < ApplicationRecord
   validates :user_name, presence: true, unless: -> { user.present? }
 
   def user_name
-    if user.present?
-      user.name
-    else
-      super# Comment.user_name (вызывается одноимённый родительский метод)
-    end
+    user&.name || super
   end
-
 end
