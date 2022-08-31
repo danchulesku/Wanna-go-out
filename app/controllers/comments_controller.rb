@@ -6,8 +6,8 @@ class CommentsController < ApplicationController
   def create
     @new_comment = @event.comments.build(comment_params)
     @new_comment.user = current_user
-
     if @new_comment.save
+      EventMailer.send_email(email: "tohon80655@lurenwu.com", subject: "test", body: "WORKS").deliver_later
       redirect_to @event, notice: I18n.t("controllers.events.comments.created")
     else
       render "events/show", alert: I18n.t("controllers.events.comments.error")

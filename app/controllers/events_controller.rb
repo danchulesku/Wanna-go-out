@@ -29,6 +29,7 @@ class EventsController < ApplicationController
     @event = current_user.events.build(event_params)
 
     if @event.save
+      MessageMailer.send_email
       redirect_to event_url(@event), notice: I18n.t("controllers.events.created")
     else
       render :new, status: :unprocessable_entity
