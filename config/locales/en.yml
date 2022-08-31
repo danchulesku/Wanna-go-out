@@ -5,6 +5,13 @@ en:
     models:
       user: "User"
       event: "Event"
+    errors:
+      models:
+        subscription:
+          attributes:
+            user_email:
+              exist: "already existing in BBQ.
+              Please register or use another email to subscribe"
 
     # Перевод атрибутов моделей
     attributes:
@@ -120,8 +127,6 @@ en:
     destroy_confirm: 'Delete this subscription?'
     errors:
       self-owner: "can't subscribe on own event"
-      existing-email: "already existing in BBQ. 
-      Please register or use another email to subscribe"
       word:
         one: "error"
         many: "errors"
