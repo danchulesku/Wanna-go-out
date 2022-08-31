@@ -8,6 +8,8 @@ en:
     errors:
       models:
         subscription:
+          user:
+            is_owner: "can't subscribe on own event"
           attributes:
             user_email:
               exist: "already existing in BBQ.
@@ -126,7 +128,6 @@ en:
   subscription:
     destroy_confirm: 'Delete this subscription?'
     errors:
-      self-owner: "can't subscribe on own event"
       word:
         one: "error"
         many: "errors"
