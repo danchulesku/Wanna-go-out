@@ -133,5 +133,20 @@ en:
         many: "errors"
         few: "errors"
         other: "errors"
+  event_mailer:
+    comment:
+      title: 'New comment'
+      author: 'Author'
+      event: 'Event'
+      datetime: 'Date'
+      owner: 'Organizer'
+    subscription:
+      title: 'New subscription'
+      name: 'Name'
+      email: 'Email'
+      author: 'Author'
+      event: 'Event'
+      datetime: 'Date'
+      owner: 'Organizer'
 
 
