@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'daniisender516@outlook.com'
+  default from: Rails.application.credentials.mailjet[:sender_email]
   layout 'mailer'
 end
