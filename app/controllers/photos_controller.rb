@@ -21,10 +21,10 @@ class PhotosController < ApplicationController
   end
 
   def notify_subscribers(new_photos)
-    emails = (@event.subscribers.map(&:user_email) + [@event.user.email]) - [current_user.email]
+    emails = (@event.subscribers.map(&:email) + [@event.user.email]) - [current_user&.email]
 
     emails.each do |email|
-      EventMailer.photos(@event, new_photos.first, email).deliver_now
+      EventMailer.photos(new_photos.first, email).deliver_now
     end
   end
 

@@ -135,12 +135,14 @@ en:
         other: "errors"
   event_mailer:
     comment:
+      subject: "New comment in"
       title: 'New comment'
       author: 'Author'
       event: 'Event'
       datetime: 'Date'
       owner: 'Organizer'
     subscription:
+      subject: "New subscription in"
       title: 'New subscription'
       name: 'Name'
       email: 'Email'
@@ -148,5 +150,9 @@ en:
       event: 'Event'
       datetime: 'Date'
       owner: 'Organizer'
+    photos:
+      subject: "New photos in"
+      title: "Were added new photos"
+      event: "Event"
 
 

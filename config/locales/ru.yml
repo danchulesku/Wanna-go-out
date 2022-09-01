@@ -140,12 +140,14 @@ ru:
         other: "ошибок"
   event_mailer:
     comment:
+      subject: "Новый комментарий в"
       title: 'Новый комментарий'
       author: 'Автор'
       event: 'Событие'
       datetime: 'Состоится'
       owner: 'Организатор'
     subscription:
+      subject: "Новый подписчик в"
       title: 'Новая подписка'
       name: 'Имя'
       email: 'Email'
@@ -154,5 +156,6 @@ ru:
       datetime: 'Состоится'
       owner: 'Организатор'
     photos:
-      title: "Были добавлены новые фотографии:"
+      subject: "Новые фотографии в"
+      title: "Были добавлены новые фотографии"
       event: "Событие"
