@@ -27,6 +27,7 @@ en:
         address: "address"
         datetime: "datetime"
         description: "description"
+        pincode: 'Pincode'
       subscription:
         user: "user"
       comment:
@@ -44,6 +45,7 @@ en:
         created: "You created new comment"
         error: "Something went wrong. Comment is not created"
         destroyed: "Comment is deleted"
+      wrong_pincode: 'Wrong pincode!'
     subscriptions:
       created: 'You subscribed on this event'
       destroyed: 'You unsubscribed on this event'

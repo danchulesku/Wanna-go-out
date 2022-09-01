@@ -27,6 +27,7 @@ ru:
         address: "Место проведения"
         datetime: "Дата и время"
         description: "Описание"
+        pincode: 'Пин-код доступа'
       subscription:
         user: "Пользователь"
         user_name: "Имя пользователя"
@@ -46,6 +47,7 @@ ru:
         created: "Вы создали новый комментарий"
         error: "Что то пошло не так. Комментарий не был создан"
         destroyed: "Комментарий удалён"
+      wrong_pincode: 'Неверный пин-код!'
     subscriptions:
       created: 'Вы подписаны на это событие'
       destroyed: 'Участник отписан'
