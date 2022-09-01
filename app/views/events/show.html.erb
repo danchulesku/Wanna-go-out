@@ -34,11 +34,11 @@
       </div>
     </div>
   </div>
-  <% if user_can_add_photo?(@event) %>
-    <%= form_with(model: @event, multipart: true) do |form| %>
+  <% if user_can_add_photo? %>
+    <%= form_with url: event_photos_path(@event), multipart: true do |form| %>
       <div class="mt-2">
         <%= form.label :photos %>
-        <%= form.file_field :photos, class: 'form-control', multiple: true  %>
+        <%= form.file_field :photos, class: 'form-control', multiple: true %>
       </div>
 
       <div class="mt-2 mb-4">
@@ -48,9 +48,13 @@
   <% end %>
 
   <% if @event.photos.any? %>
+    <h4>Фотографии события:</h4>
     <div class="my-2">
       <% @event.photos.each do |photo| %>
-        <%= event_photo(photo.source) %>
+        <div class="w-auto">
+          <%= event_photo(photo.source) %>
+        </div>
+        прикрепил <%= render partial: 'users/user', object: @event.user %>
       <% end %>
     </div>
   <% end %>

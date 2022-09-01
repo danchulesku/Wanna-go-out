@@ -1,0 +1,13 @@
+<div>
+  <h1>
+    <%= t '.event' %>
+    <%= link_to @event.title, @event %>
+  </h1>
+  <h2>
+    <%= t '.title' %>
+  </h2>
+  <% @photos.each do |photo| %>
+    <%= image_tag photo.source.url, style = "width: 300px; height:auto;" %>
+  <% end %>
+</div>
+

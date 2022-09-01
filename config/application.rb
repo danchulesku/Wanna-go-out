@@ -11,8 +11,10 @@ module BbqRails6Bs5
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
 
+    if Rails.env.development? || Rails.env.production?
+      OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
+    end
     # Configuration for the application, engines, and railties goes here.
-    #
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     config.i18n.default_locale = :ru
