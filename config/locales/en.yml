@@ -154,5 +154,7 @@ en:
       subject: "New photos in"
       title: "Were added new photos"
       event: "Event"
+  recaptcha:
+    error: "YOU ARE ROBOT. Please pass REcaptcha"
 
 

@@ -10,7 +10,7 @@ class SubscriptionsController < ApplicationController
     @new_subscription = @event.subscriptions.build(subscription_params)
     @new_subscription.user = current_user
 
-    if @new_subscription.save
+    if check_captcha(@new_subscription) && @new_subscription.save
       EventMailer.subscription(@new_subscription).deliver_now
       # Если сохранилась, редиректим на страницу самого события
       redirect_to @event, notice: I18n.t('controllers.subscriptions.created')
@@ -41,6 +41,10 @@ class SubscriptionsController < ApplicationController
 
   def set_event
     @event = Event.find(params[:event_id])
+  end
+
+  def check_captcha(model)
+    current_user.present? || verify_recaptcha(model: model)
   end
 
   # Only allow a list of trusted parameters through.
