@@ -35,6 +35,7 @@ ru:
       comment:
         body: "Комментарий"
         user_name: "Имя пользователя"
+        your: "Ваш комментарий:"
 
   controllers:
     user:
@@ -109,8 +110,17 @@ ru:
   events_delete_confirmation: "Удалить этот вопрос?"
   events:
     show:
+      upload_photos: "Добавить фотографии события?"
+      your: "Ваш комментарий:"
       edit-button: "Редактировать"
       delete-button: "Удалить"
+      where: "Где?"
+      photos: "Фотографии:"
+      uploaded_by: "загружены"
+      comments: "Комментарии:"
+      invites: "Зовёт:"
+      participants: "Пойдут:"
+      i_go: "Я пойду"
     edit: "Редактирование события"
     form:
       error:
@@ -128,11 +138,17 @@ ru:
   comments:
     comment:
     destroy_confirm: 'Вы уверены, что хотите удалить этот комментарий?'
+    send: "Отправить"
   subscriptions:
     created: 'Вы подписаны на это событие'
     destroyed: 'Участник отписан'
     error: 'Подписка/отписка не сработала'
+    subscribe: "Подписаться"
+
   subscription:
+    notice: "notice"
+    subscribers: "Подписчики"
+    edit: "Редактирование подписки"
     destroy_confirm: 'Вы уверены, что хотите удалить эту подписку?'
     errors:
       word:
@@ -157,10 +173,12 @@ ru:
       event: 'Событие'
       datetime: 'Состоится'
       owner: 'Организатор'
+
     photos:
       subject: "Новые фотографии в"
       title: "Были добавлены новые фотографии"
       event: "Событие"
+      error: "Вы не можете загрузить ноль фотографий."
   recaptcha:
     error: "ВЫ РОБОТ. Пройдите проверку на робота"
   pincode_verification:

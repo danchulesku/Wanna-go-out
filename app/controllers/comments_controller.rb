@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
     @new_comment.user = current_user
 
     if check_captcha(@new_comment) && @new_comment.save
-      notify_subscribers(@event, @new_comment)
+      notify_subscribers(@new_comment)
       redirect_to @event, notice: I18n.t("controllers.events.comments.created")
     else
       render "events/show", alert: I18n.t("controllers.events.comments.error")
@@ -39,9 +39,9 @@ class CommentsController < ApplicationController
     @event = Event.find(params[:event_id])
   end
 
-  def notify_subscribers(event, comment)
+  def notify_subscribers(comment)
     # Собираем всех подписчиков и автора события в массив мэйлов, исключаем повторяющиеся
-    all_emails = (event.subscriptions.map(&:user_email) + [event.user.email]).uniq - [current_user&.email]
+    all_emails = (comment.event.subscriptions.map(&:user_email) + [comment.event.user.email]).uniq - [comment.user&.email]
     # По адресам из этого массива делаем рассылку
     # Как и в подписках, берём EventMailer и его метод comment с параметрами
     # И отсылаем в том же потоке

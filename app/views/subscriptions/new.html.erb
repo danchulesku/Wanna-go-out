@@ -1,5 +1,5 @@
-<h1>New Subscription</h1>
+<h1><%= t("event_mailer.subscription.title") %></h1>
 
 <%= render 'form', subscription: @subscription %>
 
-<%= link_to 'Back', subscriptions_path %>
+<%= link_to t("events_form.back-button"), subscriptions_path %>

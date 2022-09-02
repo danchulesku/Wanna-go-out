@@ -4,27 +4,23 @@ class PhotosController < ApplicationController
 
   def create
     if params[:photos].nil?
-      redirect_to @event, alert: "Вы не можете загрузить ноль фотогафий."
-    else
-
-      new_photos = []
-      new_photos << params[:photos].map do |photo|
-        new_photo = @event.photos.new(user: current_user)
-        new_photo.source.attach(photo)
-        new_photo.save
-        new_photo
-      end
-
-      notify_subscribers(new_photos)
-      redirect_to @event
+      redirect_to @event, alert: t("event_mailer.photos.error")
+      return
     end
+
+    new_photos = params[:photos].map do |photo|
+      @event.photos.create(user: current_user, source: photo)
+    end
+
+    notify_subscribers(new_photos)
+    redirect_to @event
   end
 
   def notify_subscribers(new_photos)
-    emails = (@event.subscribers.map(&:email) + [@event.user.email]) - [current_user&.email]
+    emails = (@event.subscribers.map(&:email) + [@event.user.email]) - [new_photos.first.user.email]
 
     emails.each do |email|
-      EventMailer.photos(new_photos.first, email).deliver_now
+      EventMailer.photos(new_photos, email).deliver_now
     end
   end
 

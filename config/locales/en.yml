@@ -50,6 +50,9 @@ en:
       created: 'You subscribed on this event'
       destroyed: 'You unsubscribed on this event'
       error: 'Subscription/Unsubscription did not work'
+      subscribe: "subscribe"
+
+
 
   app:
     name: "BBQ"
@@ -107,8 +110,17 @@ en:
   events_delete_confirmation: "Delete this event?"
   events:
     show:
+      upload_photos: "Upload event photos?"
       edit-button: "Edit"
       delete-button: "Delete"
+      where: "Where?"
+      photos: "Photos:"
+      uploaded_by: "uploaded by"
+      comments: "Comments:"
+      your: "Your comment:"
+      invites: "Invites:"
+      participants: "Participants:"
+      i_go: "I'll go"
     edit: "Edit event"
     form:
       error:
@@ -126,8 +138,12 @@ en:
   comments:
     comment:
     destroy_confirm: 'Delete this comment?'
+    send: "Send"
 
   subscription:
+    notice: "уведомить"
+    subscribers: "Subscribers"
+    edit: "Editing subscription"
     destroy_confirm: 'Delete this subscription?'
     errors:
       word:
@@ -137,14 +153,14 @@ en:
         other: "errors"
   event_mailer:
     comment:
-      subject: "New comment in"
+      subject: "New comment"
       title: 'New comment'
       author: 'Author'
       event: 'Event'
       datetime: 'Date'
       owner: 'Organizer'
     subscription:
-      subject: "New subscription in"
+      subject: "New subscription"
       title: 'New subscription'
       name: 'Name'
       email: 'Email'
@@ -153,9 +169,10 @@ en:
       datetime: 'Date'
       owner: 'Organizer'
     photos:
-      subject: "New photos in"
+      subject: "New photos"
       title: "Were added new photos"
       event: "Event"
+      error: "You can't upload zero photos."
   recaptcha:
     error: "YOU ARE ROBOT. Please pass REcaptcha"
   pincode_verification:

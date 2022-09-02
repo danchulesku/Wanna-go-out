@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<p id="notice"><%= t("subscription.notice") %></p>
 
-<%= link_to 'Edit', edit_subscription_path(@subscription) %> |
-<%= link_to 'Back', subscriptions_path %>
+<%= link_to t("events.show.edit-button"), edit_subscription_path(@subscription) %> |
+<%= link_to t("events_form.back-button"), subscriptions_path %>
