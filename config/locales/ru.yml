@@ -84,6 +84,10 @@ ru:
     edit:
       header: "Редактирование профиля"
       change-password: "Сменить пароль"
+    edit_password:
+      new_password: "Новый пароль"
+      confirm_password: "Введите ещё раз ваш новый пароль"
+      change_password: "Сменить пароль"
     new:
       header: "Новый пользователь"
     show:
@@ -184,3 +188,4 @@ ru:
   pincode_verification:
     title: "Доступ только по пин-коду"
     pincode: "Пинкод"
+

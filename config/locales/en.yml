@@ -81,6 +81,10 @@ en:
   events_new:
     label: "New event"
   user:
+    edit_password:
+      new_password: "New password"
+      confirm_password: "Confirm new password"
+      change_password: "Change my password"
     edit:
       header: "Profile editing"
       change-password: "Change password"
