@@ -5,10 +5,13 @@ function init() {
         center: [55.753994, 37.622093],
         zoom: 9
     });
-    var calendarEl = document.getElementById('calendar');
-    var userId = calendarEl.dataset.userId;
+
+    //Считываем адресс события из вьюхи
+    var mapEl = document.getElementById('map');
+    var address = mapEl.dataset.address;
+
     // Поиск координат центра Нижнего Новгорода.
-    ymaps.geocode(userId, {
+    ymaps.geocode(address, {
         /**
          * Опции запроса
          * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/geocode.xml
