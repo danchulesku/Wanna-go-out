@@ -163,3 +163,6 @@ ru:
       event: "Событие"
   recaptcha:
     error: "ВЫ РОБОТ. Пройдите проверку на робота"
+  pincode_verification:
+    title: "Доступ только по пин-коду"
+    pincode: "Пинкод"

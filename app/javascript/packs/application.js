@@ -12,6 +12,7 @@ import 'bootstrap/dist/js/bootstrap'
 import 'bootstrap/dist/css/bootstrap'
 import 'stylesheets/application'
 import "@fortawesome/fontawesome-free/css/all"
+import "./yandex_map.js"
 
 Rails.start()
 Turbolinks.start()
