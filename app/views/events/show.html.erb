@@ -50,18 +50,18 @@
       </div>
       <%= t(".uploaded_by") %> <%= render partial: 'users/user', object: @event.user %>
     <% end %>
-    <% if user_can_add_photo? %>
-      <div class="container d-flex align-items-center justify-content-center mt-3">
-        <%= form_with url: event_photos_path(@event), multipart: true do |form| %>
-          <div class="mt-2">
-            <%= form.label t(".upload_photos") %>
-            <%= form.file_field :photos, class: 'form-control mt-2', multiple: true %>
-          </div>
+  </div>
+<% end %>
+<% if user_can_add_photo? %>
+  <div class="container d-flex align-items-center justify-content-center mt-3">
+    <%= form_with url: event_photos_path(@event), multipart: true do |form| %>
+      <div class="mt-2">
+        <%= form.label t(".upload_photos") %>
+        <%= form.file_field :photos, class: 'form-control mt-2', multiple: true %>
+      </div>
 
-          <div class="mt-2 mb-4">
-            <%= form.submit t("events_form.Save-button"), class: 'btn  btn-sm btn-primary' %>
-          </div>
-        <% end %>
+      <div class="mt-2 mb-4">
+        <%= form.submit t("events_form.Save-button"), class: 'btn  btn-sm btn-primary' %>
       </div>
     <% end %>
   </div>
