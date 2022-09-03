@@ -176,7 +176,9 @@ en:
       subject: "New photos"
       title: "Were added new photos"
       event: "Event"
-      error: "You can't upload zero photos."
+      errors:
+        zero-photos: "You can't upload zero photos."
+        unauthorized: "You should sign in or log in to add photos"
   recaptcha:
     error: "YOU ARE ROBOT. Please pass REcaptcha"
   pincode_verification:

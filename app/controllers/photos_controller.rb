@@ -3,8 +3,13 @@ class PhotosController < ApplicationController
   before_action :set_event
 
   def create
+    unless signed_in?
+      redirect_to @event, alert: t("event_mailer.photos.errors.unauthorized")
+      return
+    end
+
     if params[:photos].nil?
-      redirect_to @event, alert: t("event_mailer.photos.error")
+      redirect_to @event, alert: t("event_mailer.photos.errors.zero-photos")
       return
     end
 
