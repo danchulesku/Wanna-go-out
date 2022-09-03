@@ -17,4 +17,3 @@ import "./yandex_map.js"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
-require("@rails/ujs").start();
