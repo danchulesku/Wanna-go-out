@@ -44,7 +44,7 @@ class SubscriptionsController < ApplicationController
   end
 
   def check_captcha(model)
-    current_user.present? || verify_recaptcha(model: model)
+    signed_in? || verify_recaptcha(model: model)
   end
 
   # Only allow a list of trusted parameters through.

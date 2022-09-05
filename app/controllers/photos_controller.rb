@@ -1,5 +1,5 @@
 class PhotosController < ApplicationController
-  before_action :user_can_add_photo?, only: :create
+  before_action :authenticate_user!
   before_action :set_event
 
   def create

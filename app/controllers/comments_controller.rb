@@ -51,7 +51,7 @@ class CommentsController < ApplicationController
   end
 
   def check_captcha(model)
-    current_user.present? || verify_recaptcha(model: model, error: t("recaptcha.error"))
+    signed_in? || verify_recaptcha(model: model, error: t("recaptcha.error"))
   end
 
   # Only allow a list of trusted parameters through.
