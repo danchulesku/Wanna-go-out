@@ -13,9 +13,12 @@
     </div>
   <% end %>
 
-<div class="mt-2">
-  <%= recaptcha_tags %>
-</div>
+  <% unless signed_in? %>
+    <div class="mt-2">
+      <%= recaptcha_tags %>
+    </div>
+  <% end %>
+
 
   <div class="actions mt-2">
     <%= f.submit t("comments.send"), class: 'btn btn-sm btn-primary' %>

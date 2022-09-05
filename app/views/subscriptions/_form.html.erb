@@ -1,5 +1,5 @@
 <%= form_for [@event, subscription] do |f| %>
-  <%= render partial: 'partials/form_errors', locals: {model: subscription} %>
+  <%= render partial: 'partials/form_errors', locals: { model: subscription } %>
 
   <% unless user_signed_in? %>
     <div class="form-group">
@@ -13,9 +13,11 @@
     </div>
   <% end %>
 
-  <div class="mt-2">
-    <%= recaptcha_tags(size: "compact") %>
-  </div>
+  <% unless signed_in? %>
+    <div class="mt-2">
+      <%= recaptcha_tags(size: "compact") %>
+    </div>
+  <% end %>
 
   <div class="actions mt-2">
     <%= f.submit t("subscriptions.subscribe"), class: 'btn btn-primary' %>
