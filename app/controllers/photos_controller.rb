@@ -14,6 +14,11 @@ class PhotosController < ApplicationController
     end
 
     new_photos = params[:photos].map do |photo|
+      unless correct_image_format?(photo)
+        redirect_to @event, alert: t("event_mailer.photos.errors.format")
+        return
+      end
+
       @event.photos.create(user: current_user, source: photo)
     end
 

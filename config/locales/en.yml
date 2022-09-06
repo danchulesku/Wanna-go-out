@@ -179,6 +179,7 @@ en:
       errors:
         zero-photos: "You can't upload zero photos."
         unauthorized: "You should sign in or log in to add photos"
+        format: "You can only photos with these formats: jpg, png, jpeg"
   recaptcha:
     error: "YOU ARE ROBOT. Please pass REcaptcha"
   pincode_verification:
