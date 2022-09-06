@@ -119,6 +119,10 @@ en:
       delete-button: "Delete"
       where: "Where?"
       photos: "Photos:"
+      photo:
+        delete-confirm: "Delete this photo?"
+        message: "Photo is deleted"
+        error: "Something went wrong :(, try later"
       uploaded_by: "uploaded by"
       comments: "Comments:"
       your: "Your comment:"
@@ -178,7 +182,6 @@ en:
       event: "Event"
       errors:
         zero-photos: "You can't upload zero photos."
-        unauthorized: "You should sign in or log in to add photos"
         format: "You can only photos with these formats: jpg, png, jpeg"
   recaptcha:
     error: "YOU ARE ROBOT. Please pass REcaptcha"

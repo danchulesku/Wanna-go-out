@@ -3,11 +3,6 @@ class PhotosController < ApplicationController
   before_action :set_event
 
   def create
-    unless signed_in?
-      redirect_to @event, alert: t("event_mailer.photos.errors.unauthorized")
-      return
-    end
-
     if params[:photos].nil?
       redirect_to @event, alert: t("event_mailer.photos.errors.zero-photos")
       return
@@ -18,12 +13,20 @@ class PhotosController < ApplicationController
         redirect_to @event, alert: t("event_mailer.photos.errors.format")
         return
       end
-
       @event.photos.create(user: current_user, source: photo)
     end
 
     notify_subscribers(new_photos)
     redirect_to @event
+  end
+
+  def destroy
+    message = {notice: I18n.t("events.show.photo.message")}
+    unless @event.photos.destroy_by(id: params[:id])
+      message = I18n.t("events.show.photo.error")
+    end
+
+    redirect_to @event, message
   end
 
   def notify_subscribers(new_photos)
