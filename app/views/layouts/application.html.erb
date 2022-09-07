@@ -3,7 +3,7 @@
 <head>
   <title>BbqRails6Bs5</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <script src="https://api-maps.yandex.ru/2.1/?apikey=e18e34b4-73a0-41ba-9757-710aa244eda1&lang=ru_RU" type="text/javascript"></script>
+  <meta name="turbolinks-cache-control" content="no-cache">
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
   <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -11,6 +11,10 @@
 </head>
 
 <body>
+<% if turbolinks_blacklist_array.include?("#{params[:controller]}/#{params[:action]}") %>
+  <% 'data-turbolinks="false"'.html_safe %>
+<% end %>
+
 <%= render '/partials/nav' %>
 
 <div class="container mt-3">
