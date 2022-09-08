@@ -18,8 +18,4 @@ class ApplicationController < ActionController::Base
         (model.try(:event).present? && model.event.user == current_user)
     )
   end
-
-  def correct_image_format?(image)
-    %w[image/jpg image/jpeg image/png].include?(image.content_type)
-  end
 end

@@ -3,37 +3,42 @@ class PhotosController < ApplicationController
   before_action :set_event
 
   def create
-    if params[:photos].nil?
-      redirect_to @event, alert: t("event_mailer.photos.errors.zero-photos")
-      return
-    end
-
-    new_photos = params[:photos].map do |photo|
-      unless correct_image_format?(photo)
-        redirect_to @event, alert: t("event_mailer.photos.errors.format")
-        return
+    begin
+      new_photos = params[:photos].map do |photo|
+        @event.photos.create!(user: current_user, source: photo)
       end
-      @event.photos.create(user: current_user, source: photo)
+    rescue
+      message = {alert: I18n.t("events.show.photo.error.format")}
     end
-
     notify_subscribers(new_photos)
-    redirect_to @event
+    redirect_to @event, message || {notice: I18n.t("events.show.photo.uploaded")}
   end
 
   def destroy
-    message = {notice: I18n.t("events.show.photo.message")}
-    unless @event.photos.destroy_by(id: params[:id])
-      message = I18n.t("events.show.photo.error")
+    message = { notice: I18n.t("events.show.photo.message") }
+    if current_user_can_edit?(@event)
+      @event.photos.destroy_by(id: params[:id])
+    else
+      message = {alert: I18n.t("events.show.photo.error.uknown")}
     end
 
     redirect_to @event, message
   end
 
+  private
+
   def notify_subscribers(new_photos)
+    return if new_photos.nil?
     emails = (@event.subscribers.map(&:email) + [@event.user.email]) - [new_photos.first.user.email]
 
     emails.each do |email|
       EventMailer.photos(new_photos, email).deliver_now
+    end
+  end
+
+  def check_nil
+    if params[:photos].nil?
+      redirect_to @event, alert: t("event_mailer.photos.errors.zero-photos")
     end
   end
 

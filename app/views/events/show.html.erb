@@ -41,6 +41,7 @@
   <div id="map" data-address="<%= @event.address %>" class="h-100 w-100"></div>
 </div>
 
+<h2 class="mt-5 text-center"><%= t("events.show.photos") %></h2>
 <% if @event.photos.any? %>
   <%= render partial: "photos/photo", collection: @event.photos%>
 <% end %>

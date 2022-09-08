@@ -122,7 +122,11 @@ en:
       photo:
         delete-confirm: "Delete this photo?"
         message: "Photo is deleted"
-        error: "Something went wrong :(, try later"
+        error:
+          format: "One or several of your photos has invalid format. 
+          Upload photos only with these format: jpg, jpeg, png"
+          uknown: "Something went wrong. We can't process your request"
+        uploaded: "New photos were added"
       uploaded_by: "uploaded by"
       comments: "Comments:"
       your: "Your comment:"
