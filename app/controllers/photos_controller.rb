@@ -3,15 +3,17 @@ class PhotosController < ApplicationController
   before_action :set_event
 
   def create
-    begin
+    message = { notice: I18n.t("events.show.photo.uploaded") }
+    Photo.transaction do
       new_photos = params[:photos].map do |photo|
         @event.photos.create!(user: current_user, source: photo)
       end
+      notify_subscribers(new_photos)
     rescue
-      message = {alert: I18n.t("events.show.photo.error.format")}
+      message = { alert: I18n.t("events.show.photo.error.format") }
+      raise ActiveRecord::Rollback
     end
-    notify_subscribers(new_photos)
-    redirect_to @event, message || {notice: I18n.t("events.show.photo.uploaded")}
+    redirect_to @event, message
   end
 
   def destroy
@@ -19,7 +21,7 @@ class PhotosController < ApplicationController
     if current_user_can_edit?(@event)
       @event.photos.destroy_by(id: params[:id])
     else
-      message = {alert: I18n.t("events.show.photo.error.uknown")}
+      message = { alert: I18n.t("events.show.photo.error.uknown") }
     end
 
     redirect_to @event, message
