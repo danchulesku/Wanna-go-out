@@ -1,0 +1,19 @@
+current directory: /var/www/bbq/BBQ/vendor/bundle/ruby/3.0.0/gems/byebug-11.1.3/ext/byebug
+/usr/bin/ruby3.0 -I /usr/lib/ruby/vendor_ruby -r ./siteconf20220912-42390-pww9ca.rb extconf.rb
+creating Makefile
+
+current directory: /var/www/bbq/BBQ/vendor/bundle/ruby/3.0.0/gems/byebug-11.1.3/ext/byebug
+make DESTDIR\= clean
+
+current directory: /var/www/bbq/BBQ/vendor/bundle/ruby/3.0.0/gems/byebug-11.1.3/ext/byebug
+make DESTDIR\=
+compiling breakpoint.c
+compiling byebug.c
+compiling context.c
+compiling locker.c
+compiling threads.c
+linking shared-object byebug/byebug.so
+
+current directory: /var/www/bbq/BBQ/vendor/bundle/ruby/3.0.0/gems/byebug-11.1.3/ext/byebug
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 byebug.so ./.gem.20220912-42390-t3bwr6/byebug

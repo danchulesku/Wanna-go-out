@@ -2,7 +2,7 @@
   <div class="mt-3 mb-1">
     <%= event_photo(photo.source) %>
   </div>
-  <span class="me-3">
+  <span>
     <%= t("events.show.uploaded_by") %> <%= render partial: 'users/user', object: photo.event.user %>
   </span>
   <% if current_user == photo.event.user %>
