@@ -2,6 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
+  after_create :send_notification
 
   has_one_attached :avatar
   has_many :events
@@ -16,5 +17,9 @@ class User < ApplicationRecord
 
   def set_name
     self.name = "User №#{rand(10000)}" if self.name.blank?
+  end
+
+  def send_notification
+    UserMailer.registration(self).deliver_now
   end
 end

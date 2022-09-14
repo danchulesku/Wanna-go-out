@@ -1,0 +1,6 @@
+<div>
+  <h1><%= t('.title') + " #{@name}" %></h1>
+  <h2><%= t('.text') %> <%= link_to t("app.name"), events_url %></h2>
+  <h3><%= link_to t('.suggestion'), new_event_url(@user) %></h3>
+</div>
+

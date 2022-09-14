@@ -9,7 +9,8 @@ gem 'rails', '~> 6.1.4', '>= 6.1.4.4'
 # Use sqlite3 as the database for Active Record
 
 # Use SCSS for stylesheets
-# gem "passenger"
+
+
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 5.0'
@@ -38,6 +39,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'sqlite3', '~> 1.4'
   gem "letter_opener"
+  gem "puma"
 end
 
 group :production do

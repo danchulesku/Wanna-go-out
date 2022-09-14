@@ -199,4 +199,9 @@ ru:
   pincode_verification:
     title: "Доступ только по пин-коду"
     pincode: "Пинкод"
+  user_mailer:
+    registration:
+      title: "Приветствуем"
+      text: "Вы успешно зарегистрировались в"
+      suggestion: "Попробуйте организовать своё спервое событие здесь"
 

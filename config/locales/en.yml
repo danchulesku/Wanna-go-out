@@ -192,5 +192,10 @@ en:
   pincode_verification:
     title: "This event requires pincode"
     pincode: "pincode"
+  user_mailer:
+    registration:
+      title: "Hello"
+      text: "You registered in"
+      suggestion: "Try to arrange your first event here "
 
 
