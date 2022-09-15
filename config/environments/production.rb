@@ -4,9 +4,9 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
-  config.cache_classes = true
-  
+  config.cache_classes = false
   config.active_record.logger = nil
+  #config.active_record.logger = nil
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
@@ -14,8 +14,9 @@ Rails.application.configure do
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
 
-  config.action_mailer.default_url_options = { :host => "https://bbq516.herokuapp.com/" }
+  config.action_mailer.default_url_options = { :host => "http://my-bbq.tk/" }
   config.action_mailer.delivery_method = :mailjet
+  config.action_mailer.raise_delivery_errors = true
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
