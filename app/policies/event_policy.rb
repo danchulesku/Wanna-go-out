@@ -12,7 +12,7 @@ class EventPolicy < ApplicationPolicy
   end
 
   def show?
-
+    true#Я не знаю как вынести pincode_guard сюда :)
   end
 
   class Scope < Scope

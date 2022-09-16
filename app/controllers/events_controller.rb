@@ -1,11 +1,8 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
-  after_action :verify_authorized, except: [:show, :index, :new, :create]
-
   before_action :set_event, only: %i[show edit update destroy]
-  #before_action :set_current_user_event, only: %i[edit update destroy]
-  # @event = current_user.events.find(params[:id])
-  before_action :pincode_quard, only: [:show]
+  before_action :pincode_guard, only: [:show]
+  after_action :verify_authorized, except: [:show, :index, :new, :create]
 
   # GET /events or /events.json
   def index
@@ -64,7 +61,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 
-  def pincode_quard
+  def pincode_guard
     return true if @event.pincode.blank?
     return true if signed_in? && current_user == @event.user
 

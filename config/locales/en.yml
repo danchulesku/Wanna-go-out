@@ -192,6 +192,7 @@ en:
   pincode_verification:
     title: "This event requires pincode"
     pincode: "pincode"
+    send: "Send"
   user_mailer:
     registration:
       title: "Hello"

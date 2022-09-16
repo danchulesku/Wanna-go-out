@@ -199,6 +199,7 @@ ru:
   pincode_verification:
     title: "Доступ только по пин-коду"
     pincode: "Пинкод"
+    send: "Отправить"
   user_mailer:
     registration:
       title: "Приветствуем"
