@@ -1,8 +1,10 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
+  after_action :verify_authorized, except: [:show, :index, :new, :create]
 
-  before_action :set_event, only: %i[ show ]
-  before_action :set_current_user_event, only: %i[edit update destroy]
+  before_action :set_event, only: %i[show edit update destroy]
+  #before_action :set_current_user_event, only: %i[edit update destroy]
+  # @event = current_user.events.find(params[:id])
   before_action :pincode_quard, only: [:show]
 
   # GET /events or /events.json
@@ -23,6 +25,7 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
+    authorize @event
   end
 
   # POST /events or /events.json
@@ -38,6 +41,8 @@ class EventsController < ApplicationController
 
   # PATCH/PUT /events/1 or /events/1.json
   def update
+    authorize @event
+
     if @event.update(event_params)
       redirect_to event_url(@event), notice: I18n.t("controllers.events.updated")
     else
@@ -47,6 +52,8 @@ class EventsController < ApplicationController
 
   # DELETE /events/1 or /events/1.json
   def destroy
+    authorize @event
+
     @event.destroy
     redirect_to events_path, notice: I18n.t("controllers.events.destroyed")
   end
@@ -55,10 +62,6 @@ class EventsController < ApplicationController
 
   def set_event
     @event = Event.find(params[:id])
-  end
-
-  def set_current_user_event
-    @event = current_user.events.find(params[:id])
   end
 
   def pincode_quard

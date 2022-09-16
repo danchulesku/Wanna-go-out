@@ -197,5 +197,7 @@ en:
       title: "Hello"
       text: "You registered in"
       suggestion: "Try to arrange your first event here "
+  pundit:
+    not_authorized: 'This is not allowed for you!'
 
 
