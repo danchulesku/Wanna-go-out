@@ -73,9 +73,9 @@ class EventsController < ApplicationController
     # Если нет — ругаемся и рендерим форму ввода пин-кода
     unless @event.pincode_valid?(cookies.permanent["events_#{@event.id}_pincode"])
       if params[:pincode].present?
-        flash.now[:alert] = I18n.t('controllers.events.wrong_pincode')
+        flash.now[:alert] = I18n.t("controllers.events.wrong_pincode")
       end
-      render 'password_form'
+      render "password_form"
     end
   end
 
