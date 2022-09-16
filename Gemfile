@@ -41,6 +41,10 @@ group :development, :test do
   gem 'sqlite3', '~> 1.4'
   gem "letter_opener"
   gem "puma"
+  gem "rspec"
+  gem "rspec-rails"
+  gem "rspec-core"
+  gem 'pundit-matchers', '~> 1.7.0'
 end
 
 group :development do
