@@ -25,7 +25,16 @@ install_plugin Capistrano::SCM::Git
 #   https://github.com/capistrano/bundler
 #   https://github.com/capistrano/rails
 #   https://github.com/capistrano/passenger
-#
+
+# I assume your plugins directory is at /usr/local/rbenv/plugins
+#    shims directory at /usr/local/rbenv/shims
+#    and so on ... Adapt the following to your situation
+
+#set :default_env, {
+#  rbenv_root: 'home/daniil/.rbenv'
+#}
+set :rbenv_ruby, '3.0.2'
+
 # require "capistrano/rvm"
 require "capistrano/rbenv"
 # require "capistrano/chruby"
@@ -35,4 +44,4 @@ require "capistrano/rails/migrations"
 require "capistrano/passenger"
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
-Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }
+#Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }
