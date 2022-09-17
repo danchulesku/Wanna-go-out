@@ -1,7 +1,6 @@
-require "spec_helper"
-require "pundit/matchers"
 require "rails_helper"
-require "pundit/rspec"
+require "pundit/matchers"
+
 
 describe EventPolicy do
   subject { described_class.new(user, event) }

@@ -1,4 +1,5 @@
 class EventPolicy < ApplicationPolicy
+
   def edit?
     destroy?
   end
@@ -8,17 +9,26 @@ class EventPolicy < ApplicationPolicy
   end
 
   def destroy?
-    @record.user == @user
+    @record.user == @user.user
   end
 
   def show?
-    true#Я не знаю как вынести pincode_guard сюда :)
+    pincode_guard
   end
 
-  class Scope < Scope
-    # NOTE: Be explicit about which records you allow access to!
-    # def resolve
-    #   scope.all
-    # end
+  private
+
+  def pincode_guard
+    return true if @record.pincode.blank?
+    return true if @user.user == @record.user
+
+    if @user.pincode.present? && @record.pincode_valid?(@user.pincode)
+      @user.cookies.permanent["events_#{@record.id}_pincode"] = @user.pincode
+    end
+
+    # Проверяем, верный ли в куках пин-код
+    if @record.pincode_valid?(@user.cookies.permanent["events_#{@record.id}_pincode"])
+      true
+    end
   end
 end
