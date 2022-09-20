@@ -20,6 +20,6 @@ class User < ApplicationRecord
   end
 
   def send_notification
-    UserMailer.registration(self).deliver_now
+    UserMailer.registration(self).deliver_later
   end
 end

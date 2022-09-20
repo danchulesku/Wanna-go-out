@@ -8,6 +8,9 @@ Rails.application.configure do
   config.active_record.logger = nil
   #config.active_record.logger = nil
 
+  config.active_job.queue_adapter = :resque
+  # Префикс для имени очередей
+  config.active_job.queue_name_prefix = "my-bbq_#{Rails.env}"
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
   # and those relying on copy on write to perform better.
@@ -17,6 +20,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { :host => "http://my-bbq.tk/" }
   config.action_mailer.delivery_method = :mailjet
   config.action_mailer.raise_delivery_errors = true
+  config.log_level = :warn
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true

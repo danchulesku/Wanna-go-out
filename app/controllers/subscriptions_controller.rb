@@ -11,7 +11,7 @@ class SubscriptionsController < ApplicationController
     @new_subscription.user = current_user
 
     if check_captcha(@new_subscription) && @new_subscription.save
-      EventMailer.subscription(@new_subscription).deliver_now
+      EventMailer.subscription(@new_subscription).deliver_later
       # Если сохранилась, редиректим на страницу самого события
       redirect_to @event, notice: I18n.t('controllers.subscriptions.created')
     else

@@ -3,6 +3,7 @@ require "pundit/matchers"
 
 
 describe EventPolicy do
+  include Pundit::Authorization
   subject { described_class.new(user, event) }
 
   context "user - owner to event" do
@@ -10,6 +11,8 @@ describe EventPolicy do
     let(:event) { Event.new(user: user) }
 
     describe "#show?" do
+      before {authorize(user, event) }
+
       it { is_expected.to permit_action(:show) }
     end
 

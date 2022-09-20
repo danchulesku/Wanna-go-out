@@ -34,7 +34,7 @@ class PhotosController < ApplicationController
     emails = (@event.subscribers.map(&:email) + [@event.user.email]) - [new_photos.first.user.email]
 
     emails.each do |email|
-      EventMailer.photos(new_photos, email).deliver_now
+      EventMailer.photos(new_photos, email).deliver_later
     end
   end
 
