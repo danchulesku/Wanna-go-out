@@ -9,7 +9,7 @@ class EventPolicy < ApplicationPolicy
   end
 
   def destroy?
-    @record.user == @user.user
+    @record.user == user
   end
 
   def show?
@@ -20,15 +20,9 @@ class EventPolicy < ApplicationPolicy
 
   def pincode_guard
     return true if @record.pincode.blank?
-    return true if @user.user == @record.user
-
-    if @user.pincode.present? && @record.pincode_valid?(@user.pincode)
-      @user.cookies.permanent["events_#{@record.id}_pincode"] = @user.pincode
-    end
+    return true if user == @record.user
 
     # Проверяем, верный ли в куках пин-код
-    if @record.pincode_valid?(@user.cookies.permanent["events_#{@record.id}_pincode"])
-      true
-    end
+    @record.pincode_valid?(cookies["events_#{@record.id}_pincode"])
   end
 end

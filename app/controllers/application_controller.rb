@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
   end
 
   def pundit_user
-    UserContext.new(current_user, params[:pincode], cookies)
+    UserContext.new(current_user, cookies)
   end
 
   private
@@ -31,15 +31,5 @@ class ApplicationController < ActionController::Base
   def user_not_authorized
     flash[:alert] = t("pundit.not_authorized")
     redirect_to(request.referrer || root_path)
-  end
-end
-
-class UserContext
-  attr_reader :user, :pincode, :cookies
-
-  def initialize(user, pincode, cookies)
-    @user = user
-    @pincode = pincode
-    @cookies = cookies
   end
 end

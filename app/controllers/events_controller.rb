@@ -10,15 +10,15 @@ class EventsController < ApplicationController
 
   # GET /events/1 or /events/1.json
   def show
-    begin
-      authorize @event
-    rescue Pundit::NotAuthorizedError
-      flash.now[:alert] = I18n.t("controllers.events.wrong_pincode")
-      render "password_form"
+    if params[:pincode].present? && @event.pincode_valid?(params[:pincode])
+      cookies.permanent["events_#{@event.id}_pincode"] = params[:pincode]
     end
-
+    authorize @event
     @new_comment = @event.comments.build(params[:comment])
     @new_subscription = @event.subscriptions.build(params[:subscription])
+  rescue Pundit::NotAuthorizedError
+    flash.now[:alert] = I18n.t("controllers.events.wrong_pincode")
+    render "password_form"
   end
 
   # GET /events/new
