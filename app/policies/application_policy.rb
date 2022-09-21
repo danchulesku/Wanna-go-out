@@ -8,7 +8,6 @@ class ApplicationPolicy
   def initialize(context, record)
     @context = context
     @record = record
-    #@cookies = context.cookies
   end
 
   def index?

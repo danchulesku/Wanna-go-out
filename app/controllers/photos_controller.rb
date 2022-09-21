@@ -33,9 +33,7 @@ class PhotosController < ApplicationController
     return if new_photos.nil?
     emails = (@event.subscribers.map(&:email) + [@event.user.email]) - [new_photos.first.user.email]
 
-    emails.each do |email|
-      EventMailer.photos(new_photos, email).deliver_later
-    end
+    PhotoNotificationJob.perform_later(emails, new_photos)
   end
 
   def check_nil

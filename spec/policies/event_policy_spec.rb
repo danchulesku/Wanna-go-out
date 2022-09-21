@@ -1,9 +1,4 @@
-require "rails_helper"
-require "pundit/matchers"
-
-
 describe EventPolicy do
-  include Pundit::Authorization
   subject { described_class.new(context, event) }
   let(:context) { UserContext.new(user, cookies)}
   let(:cookies) { {} }
@@ -13,8 +8,6 @@ describe EventPolicy do
     let(:event) { Event.new(user: user) }
 
     describe "#show?" do
-      #before {authorize(user, event) }
-
       it { is_expected.to permit_action(:show) }
     end
 
@@ -32,7 +25,7 @@ describe EventPolicy do
   end
 
   context "user - foreign visitor" do
-    let(:user) {User.new}
+    let(:user) { User.new }
     let(:event) { Event.new }
 
     describe "#show?" do
