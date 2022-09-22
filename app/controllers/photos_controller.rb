@@ -8,7 +8,7 @@ class PhotosController < ApplicationController
 
     if @event.save
       message = { notice: I18n.t("events.show.photo.uploaded") }
-      notify_subscribers(photos)
+      PhotoNotificationJob.perform_later(@event, photos)
     else
       message = { alert: I18n.t("events.show.photo.error.format") }
     end
@@ -28,13 +28,6 @@ class PhotosController < ApplicationController
   end
 
   private
-
-  def notify_subscribers(new_photos)
-    return if new_photos.nil?
-    emails = (@event.subscribers.map(&:email) + [@event.user.email]) - [new_photos.first.user.email]
-
-    PhotoNotificationJob.perform_later(emails, new_photos)
-  end
 
   def check_nil
     if params[:photos].nil?

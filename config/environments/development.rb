@@ -8,7 +8,7 @@ Rails.application.configure do
 
   config.consider_all_requests_local = true
 
-  config.active_job.queue_adapter = :inline
+  config.active_job.queue_adapter = :async
 
   if Rails.root.join('tmp', 'caching-dev.txt').exist?
     config.action_controller.perform_caching = true
