@@ -147,6 +147,7 @@ ru:
       Log-in: "Войти"
       Sign-up: "Зарегистрироваться"
       Forgot-your-password: "Забыли ваш пароль"
+      Log-in_with: "Войти с помощью"
   comments:
     comment:
     destroy_confirm: 'Вы уверены, что хотите удалить этот комментарий?'

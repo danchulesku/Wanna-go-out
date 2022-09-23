@@ -14,4 +14,21 @@ module UsersHelper
       image_tag asset_path("default_avatar.png"), style: "width: 45px;"
     end
   end
+
+  def shared_links_login_icon(provider)
+    case provider
+    when :github
+      return '<i class="fa-brands fa-github" style="color: #181617"></i>'.html_safe
+    when :google_oauth2
+      return '<i class="fa-brands fa-google" style="color: #21A300"></i>'.html_safe
+    end
+  end
+
+  def user_friendly_provider(provider)
+    if provider == :google_oauth2
+      "Google"
+    else
+      provider
+    end
+  end
 end
