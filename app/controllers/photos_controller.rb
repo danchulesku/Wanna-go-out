@@ -8,7 +8,7 @@ class PhotosController < ApplicationController
 
     if @event.save
       message = { notice: I18n.t("events.show.photo.uploaded") }
-      PhotoNotificationJob.perform_later(@event, photos)
+      PhotoNotificationJob.perform_later(photos)
     else
       message = { alert: I18n.t("events.show.photo.error.format") }
     end
