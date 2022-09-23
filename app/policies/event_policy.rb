@@ -1,7 +1,7 @@
 class EventPolicy < ApplicationPolicy
 
-  def edit?
-    destroy?
+  def create?
+    user.present?
   end
 
   def update?
@@ -14,6 +14,12 @@ class EventPolicy < ApplicationPolicy
 
   def show?
     pincode_guard
+  end
+
+  class Scope < Scope
+    def resolve
+      scope.all
+    end
   end
 
   private

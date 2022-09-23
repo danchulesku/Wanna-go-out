@@ -1,11 +1,12 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
   before_action :set_event, only: %i[show edit update destroy]
-  after_action :verify_authorized, except: [:show, :index, :new, :create]
+  after_action :verify_authorized, except: [:index]
+  after_action :verify_policy_scoped, only: [:index]
 
   # GET /events or /events.json
   def index
-    @events = Event.all
+    @events = policy_scope(Event)
   end
 
   # GET /events/1 or /events/1.json
@@ -24,6 +25,7 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = current_user.events.build
+    authorize @event
   end
 
   # GET /events/1/edit
@@ -34,6 +36,7 @@ class EventsController < ApplicationController
   # POST /events or /events.json
   def create
     @event = current_user.events.build(event_params)
+    authorize(@event)
 
     if @event.save
       redirect_to event_url(@event), notice: I18n.t("controllers.events.created")
