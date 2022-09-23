@@ -283,6 +283,8 @@ Devise.setup do |config|
                     Rails.application.credentials[:omniauth][:github_prod][:app_secret]
   end
 
+  config.omniauth :google_oauth2, Rails.application.credentials[:omniauth][:google][:app_id],
+                  Rails.application.credentials[:omniauth][:google][:app_secret]
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

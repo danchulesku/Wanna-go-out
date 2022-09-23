@@ -35,6 +35,8 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem "font-awesome-rails"
 gem "pg"
 gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection" # for omniauth 2.0
 gem 'open-uri'
 
