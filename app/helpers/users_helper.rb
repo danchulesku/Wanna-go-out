@@ -9,9 +9,9 @@ module UsersHelper
 
   def small_avatar(user)
     if user.avatar.attached?
-      image_tag rails_blob_url(user.avatar), class: 'img-fluid rounded-circle', style: "width: 45px;"
+      image_tag rails_blob_url(user.avatar), class: 'img-fluid rounded-circle', style: "width: 30px;"
     else
-      image_tag asset_path("default_avatar.png"), style: "width: 45px;"
+      image_tag asset_path("default_avatar.png"), style: "width: 30px;"
     end
   end
 
