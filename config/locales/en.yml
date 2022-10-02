@@ -12,7 +12,7 @@ en:
             is_owner: "can't subscribe on own event"
           attributes:
             user_email:
-              exist: "already existing in BBQ.
+              exist: "already existing in 'Wanna go out?'.
               Please register or use another email to subscribe"
 
     # Перевод атрибутов моделей
@@ -55,7 +55,7 @@ en:
 
 
   app:
-    name: "BBQ"
+    name: "Wanna go out?"
     company: "Grishchenko"
     navbar:
       Profile-button: "Profile"
