@@ -5,7 +5,7 @@ module UsersHelper
                 class: "mb-3 mt-1 rounded-circle",
                 style: "width: 300px; height: 300px; object-fit: cover;"
     else
-      image_tag asset_path("default_avatar.png"), style: "width: 300px; height: 300px;"
+      image_tag asset_path("default_avatar.jpg"), style: "width: 300px; height: 300px;"
     end
   end
 
@@ -22,7 +22,7 @@ module UsersHelper
   end
 
   def default_avatar
-    image_tag asset_path("default_avatar.png"), style: "width: 32px; height: 32px;"
+    image_tag asset_path("default_avatar.jpg"), style: "width: 32px; height: 32px;"
   end
 
   def shared_links_login_icon(provider)
