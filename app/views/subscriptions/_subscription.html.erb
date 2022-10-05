@@ -1,8 +1,9 @@
-<div class="subscription">
+<div class="subscription mt-2">
   <% if subscription.user.present? %>
     <%= render partial: 'users/user', object: subscription.user %>
   <% else %>
-    <em><%= subscription.user_name %></em>
+    <%= default_avatar %>
+    <%= subscription.user_name %>
   <% end %>
   <% if current_user_can_edit?(subscription) %>
     <%= link_to(

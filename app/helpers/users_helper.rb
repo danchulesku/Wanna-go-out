@@ -1,18 +1,28 @@
 module UsersHelper
   def avatar(user)
     if user.avatar.attached?
-      image_tag rails_blob_url(user.avatar), class: "img-fluid mb-3 rounded-circle", style: "width: 400px;"
+      image_tag rails_blob_url(user.avatar),
+                class: "mb-3 mt-1 rounded-circle",
+                style: "width: 300px; height: 300px; object-fit: cover;"
     else
-      image_tag asset_path("default_avatar.png"), style: "width: 400px;"
+      image_tag asset_path("default_avatar.png"), style: "width: 300px; height: 300px;"
     end
+  end
+
+  def short_name(name)
+    name.length > 19 ? name[0...19] + "..." : name
   end
 
   def small_avatar(user)
     if user.avatar.attached?
-      image_tag rails_blob_url(user.avatar), class: 'img-fluid rounded-circle', style: "width: 30px;"
+      image_tag rails_blob_url(user.avatar), class: 'img-fluid rounded-circle', style: "width: 30px; height: 30px;"
     else
-      image_tag asset_path("default_avatar.png"), style: "width: 30px;"
+      default_avatar
     end
+  end
+
+  def default_avatar
+    image_tag asset_path("default_avatar.png"), style: "width: 32px; height: 32px;"
   end
 
   def shared_links_login_icon(provider)

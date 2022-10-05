@@ -1,11 +1,12 @@
-<div class="border rounded mb-3 bg-light">
-  <p><%= comment.body %></p>
+<div class="border rounded ps-3 pt-2 mb-3 bg-light">
+  <p class="mb-2"><em><%= comment.body %></em></p>
   <p>
     <span>
     <% if comment.user.present? %>
       <%= render partial: 'users/user', object: comment.user %>
     <% else %>
-      <em><strong><%= comment.user_name %></strong></em>
+        <%= default_avatar %>
+        <%= short_name(comment.user_name) %>
     <% end %>
   </span>
     <em><%= l comment.created_at, format: :short %></em>
