@@ -13,8 +13,6 @@ You launch the application. Then you can sign ap or log-in with github AUTH or g
 
 
 - some amazing event
-![изображение](https://user-images.githubusercontent.com/83035520/193475982-6cdbd056-a6ee-4307-a63e-b0f6d42a8544.png)
-
 ![Screenshot from 2022-10-05 18-52-06](https://user-images.githubusercontent.com/83035520/194110227-829627c4-c7d2-4863-b496-f239dc55b6e4.png)
 
 ![Screenshot from 2022-10-05 18-52-20](https://user-images.githubusercontent.com/83035520/194110320-c53dec44-50ed-41e7-ac3b-b95e568d65af.png)
@@ -87,8 +85,6 @@ This is my RoR study project that I created during  [good programmer course](htt
 
 
 - Какое то интересное событие
-![изображение](https://user-images.githubusercontent.com/83035520/193475982-6cdbd056-a6ee-4307-a63e-b0f6d42a8544.png)
-
 ![Screenshot from 2022-10-05 18-52-06](https://user-images.githubusercontent.com/83035520/194110227-829627c4-c7d2-4863-b496-f239dc55b6e4.png)
 
 ![Screenshot from 2022-10-05 18-52-20](https://user-images.githubusercontent.com/83035520/194110320-c53dec44-50ed-41e7-ac3b-b95e568d65af.png)
