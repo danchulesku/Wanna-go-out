@@ -48,25 +48,32 @@ You launch the application. Then you can sign ap or log-in with github AUTH or g
 gem install bundler
 bundle install
 ```
-5. Run migrations
+5. Insert master.key(check above) in config folder
+6. Run migrations
 ```
 bundle exec rails db:migrate
 ```
-6. Launch app by entering this(you are in program directory already)
+7. install webpacker
+```
+bundle exec rails webpacker:install
+```
+8. Launch app by entering this(you are in program directory already)
 ```
 bundle exec rails s
 ```
-7. That's all. Now you can use it, just go to 'http://localhost:3000/'
+9. That's all. Now you can use it, just go to 'http://localhost:3000/'
 
 ### P.s
-This is my RoR study project that I created during  [good programmer course](https://goodprogrammer.ru/rails)
+This is my RoR study project that I created during  [good programmer course](https://goodprogrammer-ru.translate.goog/rails?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en&_x_tr_pto=wapp)
 
 #### What have I learned during developing this app?
-- I found out what websockets are
-- how they work
-- I learned how to implement them with rails ActionCable
-- Tried coffescript
-- Learned some Jquery basics
+- Bootstrap 5
+- Webpacker
+- Sessions, authentication, devise gem
+- localization, I18n
+- nested resources
+- file uploading, carrierwave gem
+- Mailers, ActionMailer
 
 ## RUS
 
@@ -109,34 +116,40 @@ This is my RoR study project that I created during  [good programmer course](htt
 
 ### To start
 
-- **WARNING**: This app uses many secret api keys for sending emails, checking captcha etc. You need to ask [owner](https://t.me/Grishchenko1) for `master.key` to this app and include it in config folder
-- You should have installed ruby(3.0.2) on your pc(how to do this - [here](https://www.ruby-lang.org/en/documentation/installation/))
+- **ВАЖНО**: Это приложение использует множество секретных ключей api для отправки электронных писем, проверки капчи и т.д. Вам нужно спросить [владельца](https://t.me/Gryshchenko1 ) файл `master.key` к этому приложению и включить его в папку config
+- Вы должны иметь установленный ruby(3.0.2) на своём компьютере(как это сделать - [здесь](https://www.ruby-lang.org/en/documentation/installation /))
 
 1. Скачайте все файлы в одну папку
 2. Откройте командную строку
-3. Откройте директорию приложения в командной строке
-4. Установите все гемы(библиотеки) используемые приложением, введя эти комманды:
+3. Откройте директорию с программой в командной строке
+4. Установите все гемы(библиотеки) необходимые для работы введя это
 ```
 gem install bundler
 bundle install
 ```
-5. Прогоните миграции так:
+5. Вставьте master.key(смотри выше) в config папку
+6. Прогоните миграции
 ```
 bundle exec rails db:migrate
 ```
-6. Запустите приложенеи введя это:
+7. Скачайте вебпакер
+```
+bundle exec rails webpacker:install
+```
+8. Запустите приложение(вы уже в программной директории через командную строку)
 ```
 bundle exec rails s
 ```
-7. Это всё, теперь вы можете использовать приложение, просто перейдя на эту ссылку 'http://localhost:3000/'
+9. Всё. Теперь можете просто перейти по этой ссылке 'http://localhost:3000/'
 
 ### P.s
-Это мой учебный проект на RoR, который я создал во время прохождения [курса хорошего программиста](https://goodprogrammer.ru/rails)
+Это мой учебный проект, который я делал во время прохождения [good programmer курса](https://goodprogrammer.ru/rails)
 
-
-#### Чему я научился во время разработки этого приложения?
-- Я узнал что такое веб-сокеты
-- Понял как они работают
-- Изучил как внедрять их с помощью rails ActionCable
-- Ознакомился с coffescript
-- Изучил немного Jquery
+#### Что я изучил разрабатывая это приложение?
+- Bootstrap 5
+- Webpacker
+- Сессии, аутентификация, devise гем
+- локализация, I18n
+- вложенные ресурсы
+- загрузка файлов, carrierwave гем
+- Mailers, ActionMailer
