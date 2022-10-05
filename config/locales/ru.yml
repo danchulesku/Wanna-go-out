@@ -133,6 +133,8 @@ ru:
       invites: "Зовёт:"
       participants: "Пойдут:"
       i_go: "Я пойду"
+      subscribe: "Подписаться"
+      already-sub: "Вы подписаны"
     edit: "Редактирование события"
     form:
       error:

@@ -133,6 +133,8 @@ en:
       invites: "Invites:"
       participants: "Participants:"
       i_go: "I'll go"
+      subscribe: "Subscribe"
+      already-sub: "You subscribed"
     edit: "Edit event"
     form:
       error:
@@ -144,9 +146,9 @@ en:
           other: "Errors"
   shared:
     links:
-      Log-in: "Войти"
-      Sign-up: "Зарегистрироваться"
-      Forgot-your-password: "Забыли ваш пароль"
+      Log-in: "Log-in"
+      Sign-up: "Sign-up"
+      Forgot-your-password: "Forgot your password?"
       Log-in_with: "Sign-in with"
   comments:
     comment:
