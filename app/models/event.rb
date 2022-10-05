@@ -13,4 +13,13 @@ class Event < ApplicationRecord
   def pincode_valid?(pin2check)
     pincode == pin2check
   end
+
+  def background_image
+    if photos.any?
+      photos.sample.source.url
+    else
+      images = Dir.entries("app/assets/images/default_event_backgrounds/") -%w[. ..]
+      "default_event_backgrounds/#{images.sample}"
+    end
+  end
 end
